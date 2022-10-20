@@ -1,4 +1,16 @@
-#include "phoneBook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/20 20:46:57 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/10/20 20:46:59 by ablaamim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "PhoneBook.hpp"
 
 /*
 * <<          : insertion operator, it is used to insert a value into an output stream.
@@ -12,20 +24,28 @@
 * ::          : scope resolution operator, it is used to access the members of a class or namespace.
 */
 
-int main(int argc, char **argv) // Entry point
+int main(int argc, char **argv)           // Entry point.
 {
     std::string input;
 
-    // if there is no argument
-    if (argc != 0x1)
+    (void) argv;
+    if (argc != 0x1)                      //  if there is an argument (the program name).
     {
-        std::cout << "Usage: ./phoneBook" << std::endl;
+        std::cout << "Usage: ./PhoneBook" << std::endl;
         return (EXIT_FAILURE);
     }
-    // while the user does not enter "EXIT"
-    while (1337)
+    while (1337)                           // while the user does not enter "EXIT".
     {
-
+        std::cout << "Enter a command : ";
+        std::cin >> input;
+        if (input == "EXIT")
+            break;
+        else if (input == "ADD")
+            std::cout << "ADD" << std::endl;
+        else if (input == "SEARCH")
+            std::cout << "SEARCH" << std::endl;
+        else
+            std::cout << "Invalid command" << std::endl;
     }
 
     return (EXIT_SUCCESS);
