@@ -26,7 +26,8 @@
 
 int main(int argc, char **argv)           // Entry point.
 {
-    std::string input;
+    std::string input;                    // Declare a string variable named input.
+
 
     (void) argv;
     if (argc != 0x1)                      //  if there is an argument (the program name).
@@ -34,19 +35,18 @@ int main(int argc, char **argv)           // Entry point.
         std::cout << "Usage: ./PhoneBook" << std::endl;
         return (EXIT_FAILURE);
     }
-    while (1337)                           // while the user does not enter "EXIT".
+    while (1337) // infinite loop (while true).
     {
         std::cout << "Enter a command : ";
-        std::cin >> input;
-        if (input == "EXIT")
-            break;
-        else if (input == "ADD")
-            std::cout << "ADD" << std::endl;
-        else if (input == "SEARCH")
-            std::cout << "SEARCH" << std::endl;
-        else
+        std::getline(std::cin, input);    // get a line from the standard input stream (cin) and store it in input.
+        if (input == "EXIT")              // if the input is EXIT.
+            break ;                       // break the loop.
+        else if (input == "ADD")          // if the input is ADD.
+            phoneBook.addContact();       // call the addContact method.
+        else if (input == "SEARCH")       // if the input is SEARCH.
+            phoneBook.searchContact();    // call the searchContact method.
+        else                              // if the input is not EXIT, ADD or SEARCH.
             std::cout << "Invalid command" << std::endl;
     }
-
     return (EXIT_SUCCESS);
 }

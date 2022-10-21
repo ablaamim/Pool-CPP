@@ -12,7 +12,8 @@
 
 NAME = phoneBook # Name of the executable
 
-SRC = Contact.cpp PhoneBook.cpp # List of source files
+SRC = Contact.cpp \
+	  PhoneBook.cpp \ # List of source files
 
 OBJ = $(SRC:.cpp=.o) # List of object files
 
@@ -21,15 +22,15 @@ all: $(NAME) # Rule to build the executable from the object files
 $(NAME): $(OBJ) # Rule to build the object files from the source files
 	clang++ -Wall -Wextra -Werror -o $(NAME) $(OBJ) 
 
-%.o: %.cpp
+%.o: %.cpp # Rule to build the object files from the source files
 	clang++ -Wall -Wextra -Werror -c $< -o $@
 
-clean:
+clean: # Rule to delete the object files
 	rm -f $(OBJ)
 
-fclean: clean
+fclean: clean # Rule to delete the object files and the executable file
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean all # Rule to delete the object files and the executable file and rebuild the executable file
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re # List of phony targets
