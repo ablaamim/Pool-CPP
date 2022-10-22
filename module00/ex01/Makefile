@@ -12,15 +12,17 @@
 
 NAME = phoneBook # Name of the executable
 
-SRC = Contact.cpp \
-	  PhoneBook.cpp \ # List of source files
+SRC = main.cpp \
+	  Contact.cpp \
+	  PhoneBook.cpp \
+
 
 OBJ = $(SRC:.cpp=.o) # List of object files
 
 all: $(NAME) # Rule to build the executable from the object files
 
 $(NAME): $(OBJ) # Rule to build the object files from the source files
-	clang++ -Wall -Wextra -Werror -o $(NAME) $(OBJ) 
+	clang++ -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ) 
 
 %.o: %.cpp # Rule to build the object files from the source files
 	clang++ -Wall -Wextra -Werror -c $< -o $@

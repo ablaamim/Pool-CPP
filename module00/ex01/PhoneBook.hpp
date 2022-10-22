@@ -1,25 +1,33 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 20:47:04 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/10/20 20:47:05 by ablaamim         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef PHONEBOOK_HPP
 
-# ifndef phoneBook_hpp // if not defined
-# define phoneBook_hpp // define
+# define PHONEBOOK_HPP
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <stdlib.h>
+# include <iostream>
+# include <string>
+# include <iomanip>
+# include "./Contact.hpp"
 
-// Class Contact
+class PhoneBook
+{
+    public :
+    PhoneBook(void);
+    ~PhoneBook(void);
+    void add(std::string firstName,
+             std::string lastName,
+             std::string nickname,
+             std::string phoneNumber,
+             std::string darkestSecret);
+    void printAllContacts(void);
 
-// Class PhoneBook
+    void search(int index);
 
-#endif // end define
+    int getContactsCount(void); // returns the number of contacts in the phonebook.
+    private :
+    int     _count;
+    int     _index;
+    Contact _contacts[8];
+
+    void _printOneContact(Contact contact);
+};
+
+#endif // PHONEBOOK_HPP

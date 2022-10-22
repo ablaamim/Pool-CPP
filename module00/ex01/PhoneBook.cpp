@@ -1,52 +1,84 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 20:46:57 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/10/20 20:46:59 by ablaamim         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PhoneBook.hpp"
 
-/*
-* <<          : insertion operator, it is used to insert a value into an output stream.
-* >>          : extraction operator, it is used to extract a value from an input stream.
-* std::cout   : standard output stream, it is used to display output on the screen.
-* std::cin    : standard input stream, it is used to take input from the keyboard.
-* std::endl   : end of line, it is used to insert a new line in the output stream.
-* std::string : string, it is a class that represents a string of characters.
-* cout        : is an object of the class ostream.
-* cin         : is an object of the class istream.
-* ::          : scope resolution operator, it is used to access the members of a class or namespace.
-*/
+// init the static variable _count to 0. 
+// This variable will be used to count the number of contacts in the phonebook.
+// init the static variable _index to 0.
+// This variable will be used to keep track of the index of the last contact added to the phonebook.
 
-int main(int argc, char **argv)           // Entry point.
+PhoneBook::PhoneBook(void) 
 {
-    std::string input;                    // Declare a string variable named input.
+    this->_index = 0x0;
+    this->_count = 0x0;
+}
 
+// destructor of the PhoneBook class.
+PhoneBook::~PhoneBook(void)
+{
+    return ;
+}
 
-    (void) argv;
-    if (argc != 0x1)                      //  if there is an argument (the program name).
+// add a new contact to the phonebook.
+void    PhoneBook::add(std::string firstName,
+                       std::string lastName,
+                       std::string nickname,
+                       std::string phoneNumber,
+                       std::string darkestSecret)
+{
+    this->_contacts[this->_index].setFirstName(firstName);
+    this->_contacts[this->_index].setLastName(lastName);
+    this->_contacts[this->_index].setNickname(nickname);
+    this->_contacts[this->_index].setPhoneNumber(phoneNumber);
+    this->_contacts[this->_index].setDarkestSecret(darkestSecret);
+    if (this->_count < 8)
+        this->_count++;
+    this->_index++;
+    if (this->_index >= 8)
+        this->_index %= 8;
+}
+
+int PhoneBook::getContactsCount(void)
+{
+    return (this->_count);
+}
+
+void    PhoneBook::search(int index)
+{
+    if (index >= 0x0 && index < this->_count && index < 8)
     {
-        std::cout << "Usage: ./PhoneBook" << std::endl;
-        return (EXIT_FAILURE);
+        _printOneContact(this->_contacts[index]);
     }
-    while (1337) // infinite loop (while true).
+    else
+        std::cout << "Invalid index." << std::endl;
+}
+
+void    PhoneBook::_printOneContact(Contact contact)
+{
+    std::cout << "First name: " << contact.getFirstName() << std::endl;
+    std::cout << "Last name: " << contact.getLastName() << std::endl;
+    std::cout << "Nickname: " << contact.getNickname() << std::endl;
+    std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
+    std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
+}
+
+void    PhoneBook::printAllContacts(void)
+{
+    int i = 0x0;
+    std::cout << "Index     |First Name|Last Name |Nickname  " << std::endl;
+    while (i < this->_count)
     {
-        std::cout << "Enter a command : ";
-        std::getline(std::cin, input);    // get a line from the standard input stream (cin) and store it in input.
-        if (input == "EXIT")              // if the input is EXIT.
-            break ;                       // break the loop.
-        else if (input == "ADD")          // if the input is ADD.
-            phoneBook.addContact();       // call the addContact method.
-        else if (input == "SEARCH")       // if the input is SEARCH.
-            phoneBook.searchContact();    // call the searchContact method.
-        else                              // if the input is not EXIT, ADD or SEARCH.
-            std::cout << "Invalid command" << std::endl;
+        std::cout << std::setw(10) << i << "|";
+        if (this->_contacts[i].getFirstName().length() > 10)
+            std::cout << this->_contacts[i].getFirstName().substr(0, 9) << "." << "|";
+        else
+            std::cout << std::setw(10) << this->_contacts[i].getFirstName() << "|";
+        if (this->_contacts[i].getLastName().length() > 10)
+            std::cout << this->_contacts[i].getLastName().substr(0, 9) << "." << "|";
+        else
+            std::cout << std::setw(10) << this->_contacts[i].getLastName() << "|";
+        if (this->_contacts[i].getNickname().length() > 10)
+            std::cout << this->_contacts[i].getNickname().substr(0, 9) << "." << std::endl;
+        else
+            std::cout << std::setw(10) << this->_contacts[i].getNickname() << std::endl;
+        i++;
     }
-    return (EXIT_SUCCESS);
 }
