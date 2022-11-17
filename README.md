@@ -1,4 +1,4 @@
-# CPP
+# CPP modules :
 
 ---
 
@@ -16,30 +16,35 @@ CPP is the name of the [C++](https://en.wikipedia.org/wiki/C%2B%2B) mini pool at
 
 ---
 
-### Lists of exercise
+### Lists of exercise :
 
 ---
 
-|Module|Score|Description|
-|---|---|---|
-|CPP Module 01|100%|This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!|
-|CPP Module 01|100%|This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.|
-|CPP Module 03|100%|This module is designed to help you understand Inheritance in CPP.|
-|CPP Module 04|100%|This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP.|
-|CPP Module 05|100%|This module is designed to help you understand Try/Catch and Exceptions in CPP.|
-|CPP Module 06|100%|This module is designed to help you understand the different casts in CPP.|
-|CPP Module 07|100%|This module is designed to help you understand Templates in CPP.|
-|CPP Module 08|100%|This module is designed to help you understand templated containers, iterators and algorithms in CPP.|
+| Module | Description |
+|--- |--- |--- |
+|CPP Module 01 | This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!|
+|CPP Module 02 | This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.|
+|CPP Module 03 | This module is designed to help you understand Inheritance in CPP.|
+|CPP Module 04 | This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP.|
+|CPP Module 05 | This module is designed to help you understand Try/Catch and Exceptions in CPP.|
+|CPP Module 06 | This module is designed to help you understand the different casts in CPP.|
+|CPP Module 07 | This module is designed to help you understand Templates in CPP.|
+|CPP Module 08 | This module is designed to help you understand templated containers, iterators and algorithms in CPP.|
 
 ---
 
-### Badge
+### Badge :
 
 ---
 
 <img src="./images/cppn.png" width="150" height="150"/>
 
-#### Keywords
+---
+
+#### Keywords :
+
+---
+
 - Imperative programming
 - Object-oriented programming
 - Rigor
