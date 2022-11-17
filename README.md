@@ -21,7 +21,7 @@ CPP is the name of the [C++](https://en.wikipedia.org/wiki/C%2B%2B) mini pool at
 ---
 
 | Module | Description |
-|--- |--- |--- |
+|--- |--- |
 |CPP Module 01 | This first module of C++ is designed to help you understand the specifities of the language when compared to C. Time to dive into Object Oriented Programming!|
 |CPP Module 02 | This module is designed to help you understand the memory allocation, reference, pointers to members and the usage of the switch in CPP.|
 |CPP Module 03 | This module is designed to help you understand Inheritance in CPP.|
