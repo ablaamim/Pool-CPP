@@ -27,7 +27,7 @@ phoneBook::~phoneBook()
 ** Increment the _numberContact if it is not already at 8.
 */
 
-void phoneBook::setNumberContact( void )
+void phoneBook::setNumberContact(void)
 {
 	if (this->getNumberContact() < 8)
 		this->count++;
@@ -37,7 +37,7 @@ void phoneBook::setNumberContact( void )
 ** Return the int _numberContact of the instance pointed by this.
 */
 
-int phoneBook::getNumberContact( void )
+int phoneBook::getNumberContact(void)
 {
 	return (this->count);
 }
@@ -55,7 +55,7 @@ void	phoneBook::setIndex(void)
 		this->index++;
 }
 
-void	phoneBook::add()
+bool	phoneBook::add()
 {
 	int		index;
 	Contact	*contact;
@@ -63,18 +63,59 @@ void	phoneBook::add()
 	index = this->getIndex();
 	contact = &this->contact[index];
 	(*contact).setFirstName();
+	for(int i = 0; (*contact).getFirstName()[i] ; i++)
+	{
+		if (std::isalpha((*contact).getFirstName()[i]) == 0)
+		{
+			std::cerr << "First name must contain only letters" << std::endl;
+			return (1);
+		}			
+	}
 	(*contact).setLastName();
+	for(int i = 0; (*contact).getLastName()[i] ; i++)
+	{
+		if (std::isalpha((*contact).getLastName()[i]) == 0)
+		{
+			std::cerr << "Last name must contain only letters" << std::endl;
+			return (1);
+		}			
+	}
 	(*contact).setNickName();
+	for(int i = 0; (*contact).getNickName()[i] ; i++)
+	{
+		if (std::isalpha((*contact).getNickName()[i]) == 0)
+		{
+			std::cerr << "Nickname must contain only letters" << std::endl;
+			return (1);
+		}			
+	}
 	(*contact).setPhoneNumber();
+	for(int i = 0; (*contact).getPhoneNumber()[i] ; i++)
+	{
+		if (std::isdigit((*contact).getPhoneNumber()[i]) == 0)
+		{
+			std::cerr << "Phone number must contain only digits" << std::endl;
+			return (1);
+		}			
+	}
 	(*contact).setDarkestSecret();
+	for (int i = 0; (*contact).getDarkestSecret()[i]; i++)
+	{
+		if (std::isprint((*contact).getDarkestSecret()[i]) == 0)
+		{
+			std:: cerr << "Darkest secret must contain only printable characters" << std::endl;
+			return (1);
+		}
+	}
 	if ((*contact).getFirstName().length() == 0 &&
 		(*contact).getLastName().length() == 0 &&
 		(*contact).getNickName().length() == 0 &&
 		(*contact).getPhoneNumber().length() == 0 &&
 		(*contact).getDarkestSecret().length() == 0)
-			return ;
+			return(1);
 	this->setNumberContact();
 	this->setIndex();
+	return (0);
 }
 
 /*
@@ -82,7 +123,7 @@ void	phoneBook::add()
 ** to only keep the first 10 character and replace the tenth character by a '.'
 */
 
-static std::string truncate( std::string str )
+static std::string substring( std::string str )
 {
     if (str.length() > 10)
          return str.substr(0, 9) + ".";
@@ -93,7 +134,7 @@ static std::string truncate( std::string str )
 ** This function print the header of the SEARCH command.
 */
 
-static void	header( void )
+static void	dataBase(void)
 {
 	std::cout.width(10);
 	std::cout << std::right << "Index" << '|';
@@ -161,10 +202,10 @@ void phoneBook::inputIndex(void)
 */
 
 
-static void	printNoContact( void )
+static void	printErr(void)
 {
-	std::cout << "There are no contact in the minitel!" << std::endl;
-	std::cout << "You can add one by using the ADD command." << std::endl;
+	std::cout << "There are no contact in the Phonebook!" << std::endl;
+	std::cout << "You can add a contact using the ADD command." << std::endl;
 }
 
 /*
@@ -173,7 +214,7 @@ static void	printNoContact( void )
 ** Finally we call inputIndex() to ask the user a specific contact to print.
 */
 
-void	phoneBook::search( void )
+void	phoneBook::search(void)
 {
 	Contact	*contact;
 	int		numberContact;
@@ -182,22 +223,22 @@ void	phoneBook::search( void )
 	numberContact = this->getNumberContact();
 	if (numberContact == 0)
 	{
-		printNoContact();
+		printErr();
 		return ;
 	}
 	else
-		header();
+		dataBase();
 	for (i = 0; i < numberContact; i++)
 	{
 		contact = &this->contact[i];
 		std::cout.width(10);
 		std::cout << std::right << i + 1 << '|';
 		std::cout.width(10);
-		std::cout << std::right << truncate((*contact).getFirstName()) << '|';
+		std::cout << std::right << substring((*contact).getFirstName()) << '|';
 		std::cout.width(10);
-		std::cout << std::right << truncate((*contact).getLastName()) << '|';
+		std::cout << std::right << substring((*contact).getLastName()) << '|';
 		std::cout.width(10);
-		std::cout << std::right << truncate((*contact).getNickName()) << '|';
+		std::cout << std::right << substring((*contact).getNickName()) << '|';
 		std::cout << std::endl;
 	}
 	this->inputIndex();
