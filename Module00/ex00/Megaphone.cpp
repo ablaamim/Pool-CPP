@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 18:13:11 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/04 18:35:59 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/12/12 06:31:57 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/12/12 06:43:30 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#include <iostream>
 
-# include <iostream>
-# include <stdlib.h>
-# include <string>
-# include <iomanip>
-
-class Contact
+int	main(int argc, char **argv)
 {
-	public :
-		Contact();
-	private :
-		//int	index;
-		static std::string	infos[5];
-		std::string			in_data[11];
-};
-
-#endif
+	if (argc >= 2)
+	{
+		for (int i = 1; i < argc; i++)
+		{
+			for (int j = 0; argv[i][j]; j++)
+				std::cout << static_cast<char> (std::toupper(argv[i][j]));
+		}
+		std::cout << std::endl;
+	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	return (0);
+}

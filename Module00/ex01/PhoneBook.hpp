@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 18:18:34 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/04 18:42:57 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/12/12 07:36:48 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/12/12 17:29:20 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/PhoneBook.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-PhoneBook::PhoneBook()
-{
-	this->total = 0x0;
-}
+# include "./Contact.hpp"
 
-void	PhoneBook::add()
+class phoneBook
 {
-	if (this->total == 8)
-		std::cout << "PhoneBook is full!" << std::endl;
-}
+	public :
+		phoneBook();
+		~phoneBook();
+		void	add();
+		void	search();
+		void	inputIndex( void );
+		int		getIndex(void);
+		void	setIndex(void);
+		void	setNumberContact( void );
+		int		getNumberContact( void );
+	private :
+		Contact	contact[8];
+		int		index;
+		int		count;
+};
+
+#endif

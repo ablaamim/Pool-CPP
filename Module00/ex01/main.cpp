@@ -5,39 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 17:41:50 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/04 18:29:06 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/12/12 07:36:23 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/12/12 09:16:49 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
-int	main(int argc, char **argv)
+/*
+ * Read/Eval loop : WHILE[TRUE] read input via getline() and compare input
+ * with ABSTRACT INTERFACE, and if one of them matchs, we call the right
+ * function.
+*/
+
+int	main(void)
 {
-	(void)		argv;
-	(void)		argc;
-	std::string	input;
-	PhoneBook	pb;
+	std::string	cmd;
+	phoneBook	pb;
 
-	while(1337)
+	while (std::getline(std::cin >> std::ws, cmd))
 	{
-		std::cout << "Please enter an option : " \
-		<< "ADD, SEARCH OR EXIT" << std::endl;
-		std::cout << "$> ";
-		std::cin >> input;
-		if (input == "EXIT" || std::cin.eof())
-			break;
-		else if (input == "ADD")
+		if (!cmd.compare("EXIT"))
+		{
+			std::cout << "Exiting PhoneBook ..." << std::endl;
+			break ;
+		}
+		else if (!cmd.compare("ADD"))
 		{
 			//std::cout << "ADD" << std::endl;
 			pb.add();
 		}
-		else if (input == "SEARCH")
+		else if (!cmd.compare("SEARCH"))
 		{
-			std::cout << "SEARCH" << std::endl;
+			pb.search();
+			//std::cout << "SEARCH" << std::endl;
 		}
 		else
-			std::cerr << "Invalid command!" << std::endl;
+			std::cout << "Unknown Command" << std::endl;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }

@@ -5,37 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/04 17:38:04 by ablaamim          #+#    #+#              #
-#    Updated: 2022/12/04 17:38:08 by ablaamim         ###   ########.fr        #
+#    Created: 2022/12/12 07:29:32 by ablaamim          #+#    #+#              #
+#    Updated: 2022/12/12 09:03:41 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = awesomephonebook
+NAME = AwesomePhoneBook
 
-CC = clang++
+SRCS = main.cpp \
+		PhoneBook.cpp \
+		Contact.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = ./sources/main.cpp \
-	  ./sources/Contact.cpp \
-	  ./sources/PhoneBook.cpp \
+all : $(NAME)
 
-OBJ = $(SRC:.cpp=.o)
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-all: $(Name)
-
-$(Name): $(OBJ)
-	$(CC) $(CFLAGS) -o $(Name) $(OBJ)
-
-%.o: %.cpp
+%.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJ)
+clean :
+	rm -f $(OBJS)
 
-fclean: clean
-	rm -f $(Name)
+fclean : clean
+	rm -f $(NAME)
 
-re: fclean all
+re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY : all re fclean clean
