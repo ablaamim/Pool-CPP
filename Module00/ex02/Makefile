@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/13 18:25:43 by ablaamim          #+#    #+#              #
+#    Updated: 2022/12/13 18:25:45 by ablaamim         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = account
 
 SRC = tests.cpp \
@@ -7,7 +19,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CC = clang++
 
-CFLAGS = #-Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

@@ -14,7 +14,7 @@
 #include <iostream>
 #include <ctime>
 
-/* Init static class members to 0*/
+/* Static class attributes */
 
 int	Account::_nbAccounts;
 int	Account::_totalAmount;
@@ -39,7 +39,7 @@ Account::Account(int initial_deposit)
 }
 
 /*
-** Function to print the current date and time. (timestamp)
+** Function to print timestamps.
 */
 
 void	Account::_displayTimestamp()
@@ -96,7 +96,7 @@ void	Account::displayStatus( void ) const
 }
 
 /*
-** This method calculs the new amount of the account by adding the previous
+** This method calculates the new amount of the account by adding the previous
 ** amount and the deposit.
 ** Then a log message is printed and the values are updated.
 */
@@ -118,7 +118,7 @@ void	Account::makeDeposit( int deposit )
 }
 
 /*
-** This method calculs the new amount of the account by substracting the
+** This method calculates the new amount of the account by substracting the
 ** previous amount and the withdraw.
 ** If the new amount is more or equal to 0, then the withdraw is possible.
 ** A log message is printed and the values are updated.
@@ -151,10 +151,6 @@ bool	Account::makeWithdrawal( int withdrawal )
 		return (false);
 	}
 }
-
-/*
-** Bastard function.
-*/
 
 int		Account::checkAmount( void ) const
 {

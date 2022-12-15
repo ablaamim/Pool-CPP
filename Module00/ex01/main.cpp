@@ -23,8 +23,11 @@ int	main(void)
 	std::string	cmd;
 	phoneBook	pb;
 
-	while (std::getline(std::cin >> std::ws, cmd))
+	while (1337)
 	{
+		std::getline(std::cin >> std::ws, cmd);
+		if (std::cin.eof())
+			break ;
 		if (!cmd.compare("EXIT"))
 		{
 			std::cout << "Exiting PhoneBook ..." << std::endl;
@@ -32,14 +35,13 @@ int	main(void)
 		}
 		else if (!cmd.compare("ADD"))
 		{
-			//std::cout << "ADD" << std::endl;
-			pb.add();
+			if (pb.add())
+			{
+				continue ;
+			}
 		}
 		else if (!cmd.compare("SEARCH"))
-		{
 			pb.search();
-			//std::cout << "SEARCH" << std::endl;
-		}
 		else
 			std::cout << "Unknown Command" << std::endl;
 	}

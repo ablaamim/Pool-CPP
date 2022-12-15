@@ -20,7 +20,7 @@ class phoneBook
 	public :
 		phoneBook();
 		~phoneBook();
-		void	add();
+		bool	add();
 		void	search();
 		void	inputIndex( void );
 		int		getIndex(void);
