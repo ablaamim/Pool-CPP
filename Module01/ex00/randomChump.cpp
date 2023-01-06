@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:38:34 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 15:40:44 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/03 15:12:45 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/03 15:18:36 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	randomChump(std::string name)
 {
-	Zombie	onStack;
+	Zombie ZombieStack;
 
-	onStack.setZombie(name);
-	onStack.announce();
+	ZombieStack.set_name(name);
+	ZombieStack.announce();
 }

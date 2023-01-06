@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:29:13 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 15:37:20 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/03 15:06:03 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/03 15:12:07 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 Zombie	*newZombie(std::string name)
 {
-	Zombie	*onHeap = new Zombie;
+	Zombie	*OnHeap;
 
-	onHeap->setZombie(name);
-	return (onHeap);
+	OnHeap = new Zombie;
+	OnHeap->set_name(name);
+	return (OnHeap);
 }

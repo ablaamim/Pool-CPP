@@ -1,40 +1,26 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/15 16:33:05 by ablaamim          #+#    #+#              #
-#    Updated: 2022/12/15 16:33:07 by ablaamim         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = prog
 
-NAME = reference
+SRC = main.cpp
 
-SRCS = main.cpp
-
-OBJS = $(SRCS:.cpp=.o)
-
-CC = clang++
-
-CFLAGS = -Wall -Wextra -Werror
-
-RM = rm -f
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+CFLAGS = -Wall -Wextra -Werror
+
+C = clang++
+
+$(NAME): $(OBJ)
+	$(C) $(CFLAGS) -o $(NAME) $(OBJ)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(C) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	rm -f $(OBJ)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean: clean	
+	rm -f $(NAME)
 
 re: fclean all
 

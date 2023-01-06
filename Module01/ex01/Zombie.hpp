@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 16:40:39 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 15:49:44 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/06 16:49:03 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/06 17:05:16 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
-# include <string>
 
 class Zombie
 {
+	private :
+		std::string	name;
 	public :
 		Zombie();
 		~Zombie();
-		void	announce();
-		std::string	getZombie();
-		void	setZombie(std::string name);
-	private :
-		std::string name;
+		void		announce();
+		std::string	get_name();
+		void		set_name(std::string name);
 };
 
 Zombie *ZombieHorde(int N, std::string name);

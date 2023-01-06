@@ -1,15 +1,27 @@
-NAME = weapon
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/06 17:29:20 by ablaamim          #+#    #+#              #
+#    Updated: 2023/01/06 17:29:22 by ablaamim         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = violence
 
 SRC = main.cpp \
 	  HumanA.cpp \
 	  HumanB.cpp \
 	  Weapon.cpp
 
+OBJ = $(SRC:.cpp=.o)
+
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
-
-OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 

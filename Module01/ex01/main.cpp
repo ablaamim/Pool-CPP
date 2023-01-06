@@ -5,20 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 16:44:26 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 15:51:16 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/06 16:54:10 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/06 17:09:41 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+int	main()
 {
-	Zombie	*onHeap;
-
-	onHeap = ZombieHorde(8, "Zombie");
-	for (int i = 0; i < 8; i++)
-		onHeap[i].announce();
-	delete[] onHeap;
+	Zombie *horde = ZombieHorde(5, "Green");
+	for (int i = 0; i < 5; i++)
+		horde[i].announce();
+	delete[] horde;
 	return (0);
 }

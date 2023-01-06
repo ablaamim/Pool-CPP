@@ -5,27 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:32:59 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 17:00:53 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/06 17:19:53 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/06 17:19:55 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
-int	main(void)
+int main()
 {
-	std::string	var = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &var;
-	std::string	&stringREF = var;
+  std::string s = "HI THIS IS BRAIN";
 
-	std::cout << "\nThe memory address of the string variable :\n" << std::endl;
-	std::cout << "var address is       : " << &var << std::endl;
-    std::cout << "stringPTR address is : " << stringPTR << std::endl;
-	std::cout << "stringREF address is : " << &stringREF << std::endl;
+  /* 
+    Create a pointer to the string
+  */
+  std::string* stringPTR = &s;
 
-	std::cout << "\nContent of :\n" << std::endl;
-	std::cout << "var is       : " << var << std::endl;
-	std::cout << "stringPTR is : " << *stringPTR << std::endl;
-	std::cout << "stringREF is : " << stringREF << std::endl;
-	return (0);
+  /*
+    Create a reference to the string 
+  */
+  std::string& stringREF = s;
+
+  /*
+    Print the memory addresses of the string using the pointer and the reference variables
+  */
+  std::cout <<  std::endl <<"           Memory addresses        " << std::endl << std::endl;
+  std::cout << "Memory address of s              : " << &s << std::endl;
+  std::cout << "Memory address held by stringPTR : " << stringPTR << std::endl;
+  std::cout << "Memory address held by stringREF : " << &stringREF << std::endl;
+
+  /*
+    Print the values of the string using the pointer and the reference variables
+  */
+  std::cout << std::endl << "                Values        " << std::endl << std::endl;
+  std::cout << "Value of s: " << s << std::endl;
+  std::cout << "Value pointed to by stringPTR    : " << *stringPTR << std::endl;
+  std::cout << "Value pointed to by stringREF    : " << stringREF << std::endl << std::endl;
+  return (0);
 }

@@ -5,16 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/14 16:27:17 by ablaamim          #+#    #+#              #
-#    Updated: 2022/12/15 15:55:47 by ablaamim         ###   ########.fr        #
+#    Created: 2023/01/06 17:16:09 by ablaamim          #+#    #+#              #
+#    Updated: 2023/01/06 17:16:14 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
-
-CC = g++
-
-CFLAGS = -Wall -Wextra -Werror
+NAME = Zombie
 
 SRCS = main.cpp \
 		Zombie.cpp \
@@ -22,20 +18,26 @@ SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-all : $(NAME)
+CC = clang++
 
-$(NAME) : $(OBJS)
+CFLAGS = -Wall -Wextra -Werror
+
+RM = rm -f
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o : %.cpp
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean :
-	rm -f $(OBJS)
+clean:
+	$(RM) $(OBJS)
 
-fclean : clean
-	rm -f $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re : fclean all
+re: fclean all
 
-.PHONY : all re fclean clean
+.PHONY: all clean fclean re

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 16:41:48 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 15:43:42 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/06 16:51:59 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/06 17:00:26 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,27 @@
 
 Zombie::Zombie()
 {
+	std::cout << "Constructor is called" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << this->name << " : is destructed!" << std::endl;
+	std::cout << this->name << " : is destructed" << std::endl;
 }
 
 void	Zombie::announce()
 {
-	std::cout << this->name << " : BraiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->name << " : BraiiiiiinnnzzZ..." << std::endl;
 }
 
-void	Zombie::setZombie(std::string name)
+std::string	Zombie::get_name()
+{
+	return (this->name);
+}
+
+void	Zombie::set_name(std::string name)
 {
 	this->name = name;
 }
 
-std::string Zombie::getZombie()
-{
-	return (this->name);
-}
+

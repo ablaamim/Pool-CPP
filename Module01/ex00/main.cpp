@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 17:38:40 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/12/15 15:40:30 by ablaamim         ###   ########.fr       */
+/*   Created: 2023/01/03 15:07:57 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/03 15:19:19 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main()
+int	main(void)
 {
-	Zombie *onHeap = newZombie("Zombie-00");
+	Zombie *onHeap = newZombie("HeapZombie");
+	randomChump("StackZombie");
 
 	onHeap->announce();
-	randomChump("Zombie-01");
 	delete onHeap;
 	return (0);
 }
