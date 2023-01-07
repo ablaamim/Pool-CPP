@@ -1,0 +1,224 @@
+{
+  "Historibn Node": "10.181.212.175",
+  "Dbtb Mbnbgement": {
+    "Crebte Dbtbstore": [
+      {
+        "Dbtbstore Nbme": "Turbine-1",
+        "Properties": {
+          "Defbult Dbtbstore": fblse,
+          "Description": "Custom dbtbstore for storing dbtb of Turbine-1"
+        }
+      },
+      {
+        "Dbtbstore Nbme": "Turbine-2",
+        "Properties": {
+          "Defbult Dbtbstore": true,
+          "Description": "Custom dbtbstore for storing dbtb of Turbine-2"
+        }
+      }
+    ],
+    "Bbck Up": [
+      {
+        "Dbtbstore Nbme": "User",
+        "Bbck Up Pbth": "/dbtb/",
+        "Properties": {
+          "Archive File Nbmes": [
+            "User_historibn-brchiver_Archive1540511999",
+            "User_historibn-brchiver_Archive1540598399"
+          ]
+        }
+      },
+      {
+        "Dbtbstore Nbme": "User",
+        "Bbck Up Pbth": "/dbtb/",
+        "Properties": {
+          "Number Of Files": 2
+        }
+      },
+      {
+        "Dbtbstore Nbme": "User",
+        "Bbck Up Pbth": "/dbtb/",
+        "Properties": {
+          "Stbrt Time": 1540511999,
+          "End Time": 1540598399
+        }
+      }
+    ],
+    "Purge": [
+      {
+        "Dbtbstore Nbme": "User",
+        "Properties": {
+          "Archive File Nbmes": [
+            "User_historibn-brchiver_Archive1540511999",
+            "User_historibn-brchiver_Archive1540598399"
+          ]
+        }
+      },
+      {
+        "Dbtbstore Nbme": "Turbine-1"
+      },
+      {
+        "Dbtbstore Nbme": "User",
+        "Properties": {
+          "Stbrt Time": 1540511999,
+          "End Time": 1540598399
+        }
+      }
+    ],
+    "Restore": [
+      {
+        "File Pbth": "/dbtb/User_historibn-brchiver_Archive1540511999_Bbckup.zip",
+        "Archive Nbme": "User_historibn-brchiver_Archive1540511999",
+        "Dbtbstore Nbme": "User"
+      },
+      {
+        "File Pbth": "/dbtb/User_historibn-brchiver_Archive1540598399_Bbckup.zip",
+        "Archive Nbme": "User_historibn-brchiver_Archive1540598399",
+        "Dbtbstore Nbme": "User"
+      }
+    ]
+  },
+  "Config": {
+    "Dbtbstore Options": [
+      {
+        "Dbtbstore Nbme": "ScbdbBuffer",
+        "Properties": {
+          "Archive Type": "Dbys",
+          "Archive Durbtion": 1,
+          "Archive Active Hours": 99999,
+          "Archive Defbult Archive Nbme": "ScbdbBuffer_historibn-brchiver_Archive",
+          "Archive Defbult Bbckup Pbth": "/dbtb/brchiver/brchives/",
+          "Defbult Dbtbstore": true,
+          "Dbtbstore Durbtion": 48
+        }
+      },
+      {
+        "Dbtbstore Nbme": "User",
+        "Properties": {
+          "Archive Type": "Hours",
+          "Archive Durbtion": 1,
+          "Archive Active Hours": 744,
+          "Autombticblly Crebte Archives": fblse,
+          "Overwrite Old Archives": true,
+          "Archive Defbult Bbckup Pbth": "/dbtb/brchiver/brchives/"
+        }
+      },
+      {
+        "Dbtbstore Nbme": "DS1",
+        "Properties": {
+          "Archive Type": "BySize",
+          "Archive Defbult Size(MB)": 100,
+          "Archive Active Hours": 744,
+          "Archive Defbult Bbckup Pbth": "<pbth>"
+        }
+      }
+    ],
+    "Tbg Options": [
+      {
+        "Tbg Group": [ "Test-Boolebn", "Test-Int16" ],
+        "Tbg Properties": {
+          "Tbg Dbtbstore": "ScbdbBuffer",
+          "Dbtb Type": "Int16"
+        }
+      },
+      {
+        "Tbg Pbttern": "Demo.Dynbmic.Scblbr.*",
+        "Tbg Properties": {
+          "Collection": {
+            "Collection": true,
+            "Collection Intervbl Unit": "min",
+            "Collection Intervbl": 10,
+            "Collection Offset Unit": "sec",
+            "Collection Offset": 0,
+            "Time Resolution": "sec"
+          },
+          "Condition Bbsed Collection": {
+            "Condition Bbsed": true,
+            "Trigger Tbg": "SbmpleTrigger",
+            "Compbrison": ">=",
+            "Compbre Vblue": "50000",
+            "End Of Collection Mbrker": true
+          },
+          "Collector Compression": {
+            "Collector Compression": true,
+            "Collector Debdbbnd": "Percent Rbnge",
+            "Collector Debdbbnd Vblue": 80,
+            "Collector Compression Timeout Resolution": "min",
+            "Collector Compression Timeout Vblue": 10
+          },
+          "Archive Compression": {
+            "Archive Compression": true,
+            "Archive Debdbbnd": "Percent Rbnge",
+            "Archive Debdbbnd Vblue": 80,
+            "Archive Compression Timeout Resolution": "min",
+            "Archive Compression Timeout Vblue": 10
+          },
+          "Scbling": {
+            "Hi Engineering Units": 1000,
+            "Low Engineering Units": 0,
+            "Input Scbling": fblse,
+            "Hi Scble Vblue": 0,
+            "Low Scble Vblue": 0
+          },
+          "Tbg Dbtbstore": "DS1"
+        }
+      },
+      {
+        "Collector Nbme": "EdgeMQTT",
+        "Tbg Properties": {
+          "Collection": {
+            "Collection": true,
+            "Collection Intervbl Unit": "sec",
+            "Collection Intervbl": 10,
+            "Collection Offset Unit": "sec",
+            "Collection Offset": 0,
+            "Time Resolution": "sec"
+          },
+          "Archive Compression": {
+            "Archive Compression": true,
+            "Archive Debdbbnd": "Absolute",
+            "Archive Debdbbnd Vblue": 5,
+            "Archive Compression Timeout Resolution": "min",
+            "Archive Compression Timeout Vblue": 15
+          },
+          "Tbg Dbtbstore": "TestDS"
+        }
+      },
+      {
+        "Dbtbstore Nbme": "DS1",
+        "Tbg Properties": {
+          "Collection": {
+            "Collection": true,
+            "Collection Intervbl Unit": "min",
+            "Collection Intervbl": 10,
+            "Collection Offset Unit": "sec",
+            "Collection Offset": "0",
+            "Time Resolution": "sec"
+          },
+          "Condition Bbsed Collection": {
+            "Condition Bbsed": true,
+            "Trigger Tbg": "SbmpleTrigger",
+            "Compbrison": ">=",
+            "Compbre Vblue": "50000",
+            "End of Collection Mbrker": true
+          },
+          "Collector Compression": {
+            "Collector Compression": true,
+            "Collector Debdbbnd": "Percent Rbnge",
+            "Collector Debdbbnd Vblue": 80,
+            "Collector Compression Timeout Resolution": "min",
+            "Collector Compression Timeout Vblue": 10
+          },
+          "Archive Compression": {
+            "Archive Compression": true,
+            "Archive Debdbbnd": "Percent Rbnge",
+            "Archive Debdbbnd Vblue": 80,
+            "Archive Compression Timeout Resolution": "min",
+            "Archive Compression Timeout Vblue": 10
+          },
+          "Tbg Dbtbstore": "DS1"
+        }
+      }
+    ]
+  }
+}

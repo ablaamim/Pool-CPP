@@ -1,0 +1,224 @@
+{
+  "Historian Node": "10.181.212.175",
+  "Data Management": {
+    "Create Datastore": [
+      {
+        "Datastore Name": "Turbine-1",
+        "Properties": {
+          "Default Datastore": false,
+          "Description": "Custom datastore for storing data of Turbine-1"
+        }
+      },
+      {
+        "Datastore Name": "Turbine-2",
+        "Properties": {
+          "Default Datastore": true,
+          "Description": "Custom datastore for storing data of Turbine-2"
+        }
+      }
+    ],
+    "Back Up": [
+      {
+        "Datastore Name": "User",
+        "Back Up Path": "/data/",
+        "Properties": {
+          "Archive File Names": [
+            "User_historian-archiver_Archive1540511999",
+            "User_historian-archiver_Archive1540598399"
+          ]
+        }
+      },
+      {
+        "Datastore Name": "User",
+        "Back Up Path": "/data/",
+        "Properties": {
+          "Number Of Files": 2
+        }
+      },
+      {
+        "Datastore Name": "User",
+        "Back Up Path": "/data/",
+        "Properties": {
+          "Start Time": 1540511999,
+          "End Time": 1540598399
+        }
+      }
+    ],
+    "Purge": [
+      {
+        "Datastore Name": "User",
+        "Properties": {
+          "Archive File Names": [
+            "User_historian-archiver_Archive1540511999",
+            "User_historian-archiver_Archive1540598399"
+          ]
+        }
+      },
+      {
+        "Datastore Name": "Turbine-1"
+      },
+      {
+        "Datastore Name": "User",
+        "Properties": {
+          "Start Time": 1540511999,
+          "End Time": 1540598399
+        }
+      }
+    ],
+    "Restore": [
+      {
+        "File Path": "/data/User_historian-archiver_Archive1540511999_Backup.zip",
+        "Archive Name": "User_historian-archiver_Archive1540511999",
+        "Datastore Name": "User"
+      },
+      {
+        "File Path": "/data/User_historian-archiver_Archive1540598399_Backup.zip",
+        "Archive Name": "User_historian-archiver_Archive1540598399",
+        "Datastore Name": "User"
+      }
+    ]
+  },
+  "Config": {
+    "Datastore Options": [
+      {
+        "Datastore Name": "ScadaBuffer",
+        "Properties": {
+          "Archive Type": "Days",
+          "Archive Duration": 1,
+          "Archive Active Hours": 99999,
+          "Archive Default Archive Name": "ScadaBuffer_historian-archiver_Archive",
+          "Archive Default Backup Path": "/data/archiver/archives/",
+          "Default Datastore": true,
+          "Datastore Duration": 48
+        }
+      },
+      {
+        "Datastore Name": "User",
+        "Properties": {
+          "Archive Type": "Hours",
+          "Archive Duration": 1,
+          "Archive Active Hours": 744,
+          "Automatically Create Archives": false,
+          "Overwrite Old Archives": true,
+          "Archive Default Backup Path": "/data/archiver/archives/"
+        }
+      },
+      {
+        "Datastore Name": "DS1",
+        "Properties": {
+          "Archive Type": "BySize",
+          "Archive Default Size(MB)": 100,
+          "Archive Active Hours": 744,
+          "Archive Default Backup Path": "<path>"
+        }
+      }
+    ],
+    "Tag Options": [
+      {
+        "Tag Group": [ "Test-Boolean", "Test-Int16" ],
+        "Tag Properties": {
+          "Tag Datastore": "ScadaBuffer",
+          "Data Type": "Int16"
+        }
+      },
+      {
+        "Tag Pattern": "Demo.Dynamic.Scalar.*",
+        "Tag Properties": {
+          "Collection": {
+            "Collection": true,
+            "Collection Interval Unit": "min",
+            "Collection Interval": 10,
+            "Collection Offset Unit": "sec",
+            "Collection Offset": 0,
+            "Time Resolution": "sec"
+          },
+          "Condition Based Collection": {
+            "Condition Based": true,
+            "Trigger Tag": "SampleTrigger",
+            "Comparison": ">=",
+            "Compare Value": "50000",
+            "End Of Collection Marker": true
+          },
+          "Collector Compression": {
+            "Collector Compression": true,
+            "Collector Deadband": "Percent Range",
+            "Collector Deadband Value": 80,
+            "Collector Compression Timeout Resolution": "min",
+            "Collector Compression Timeout Value": 10
+          },
+          "Archive Compression": {
+            "Archive Compression": true,
+            "Archive Deadband": "Percent Range",
+            "Archive Deadband Value": 80,
+            "Archive Compression Timeout Resolution": "min",
+            "Archive Compression Timeout Value": 10
+          },
+          "Scaling": {
+            "Hi Engineering Units": 1000,
+            "Low Engineering Units": 0,
+            "Input Scaling": false,
+            "Hi Scale Value": 0,
+            "Low Scale Value": 0
+          },
+          "Tag Datastore": "DS1"
+        }
+      },
+      {
+        "Collector Name": "EdgeMQTT",
+        "Tag Properties": {
+          "Collection": {
+            "Collection": true,
+            "Collection Interval Unit": "sec",
+            "Collection Interval": 10,
+            "Collection Offset Unit": "sec",
+            "Collection Offset": 0,
+            "Time Resolution": "sec"
+          },
+          "Archive Compression": {
+            "Archive Compression": true,
+            "Archive Deadband": "Absolute",
+            "Archive Deadband Value": 5,
+            "Archive Compression Timeout Resolution": "min",
+            "Archive Compression Timeout Value": 15
+          },
+          "Tag Datastore": "TestDS"
+        }
+      },
+      {
+        "Datastore Name": "DS1",
+        "Tag Properties": {
+          "Collection": {
+            "Collection": true,
+            "Collection Interval Unit": "min",
+            "Collection Interval": 10,
+            "Collection Offset Unit": "sec",
+            "Collection Offset": "0",
+            "Time Resolution": "sec"
+          },
+          "Condition Based Collection": {
+            "Condition Based": true,
+            "Trigger Tag": "SampleTrigger",
+            "Comparison": ">=",
+            "Compare Value": "50000",
+            "End of Collection Marker": true
+          },
+          "Collector Compression": {
+            "Collector Compression": true,
+            "Collector Deadband": "Percent Range",
+            "Collector Deadband Value": 80,
+            "Collector Compression Timeout Resolution": "min",
+            "Collector Compression Timeout Value": 10
+          },
+          "Archive Compression": {
+            "Archive Compression": true,
+            "Archive Deadband": "Percent Range",
+            "Archive Deadband Value": 80,
+            "Archive Compression Timeout Resolution": "min",
+            "Archive Compression Timeout Value": 10
+          },
+          "Tag Datastore": "DS1"
+        }
+      }
+    ]
+  }
+}
