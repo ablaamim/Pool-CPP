@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:02:00 by ablaamim          #+#    #+#             */
-/*   Updated: 2023/01/10 16:35:13 by ablaamim         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:28:27 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Fixed
 		int		getRawBits() const;
 		void	setRawBits(int const raw);
 	private :
-		int					nbr;
-		static int const	rawBits = 8;
+		int					rawBits;
+		static int const	fractionalBits = 8;
 };
 
 # endif
