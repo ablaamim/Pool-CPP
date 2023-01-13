@@ -14,10 +14,10 @@
 # define POINT_HPP
 
 # include "Fixed.hpp"
-
 #include "Fixed.hpp"
 
-class Point {
+class Point
+{
  public:
   Point(void);
   Point(float const x, float const y);

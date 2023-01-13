@@ -12,11 +12,15 @@
 
 #include "Point.hpp"
 
-static float area(float x1, float y1, float x2, float y2, float x3, float y3) {
-  return fabs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
+// Function to calculate area of triangle formed by (x1, y1),
+
+static float area(float x1, float y1, float x2, float y2, float x3, float y3)
+{
+  return (fabs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0));
 }
 
-bool bsp(Point const a, Point const b, Point const c, Point const point) {
+bool bsp(Point const a, Point const b, Point const c, Point const point)
+{
   /* Calculate area of triangle ABC */
   Fixed totalArea = area(a.getX().toFloat(), a.getY().toFloat(),
                          b.getX().toFloat(), b.getY().toFloat(),
