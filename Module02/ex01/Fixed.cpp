@@ -12,63 +12,77 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : rawBits(0)
+/*
+* Implementing a Fixed class :
+* The Fixed class is a class that represents a fixed point number.
+* It has a fixed number of bits for the fractional part.
+* The number of bits for the fractional part is defined by the static const int fractionalBits.
+* The fractional part is the part after the decimal point.
+* The integer part is the part before the decimal point.
+*/
+
+Fixed::Fixed(void)                 // default constructor (no parameters)
 {
+	this->rawBits = 0;
 	std::cout << "Default constructor called" << std::endl;
+	return ;
 }
 
-Fixed::Fixed(Fixed const &rhs)
+Fixed::Fixed(const int n)          // constructor with int parameter
 {
-	rawBits = getRawBits();
+	this->rawBits = n << this->fractionalBits;
+	std::cout << "Int constructor called" << std::endl;
+	return ;
+}
+
+Fixed::Fixed(const float n)        // constructor with float parameter
+{
+	this->rawBits = roundf(n * (1 << this->fractionalBits));
+	std::cout << "Float constructor called" << std::endl;
+	return ;
+}
+
+Fixed::Fixed(const Fixed &src)    // copy constructor (with const reference)
+{
 	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
 }
 
-Fixed&	Fixed::operator=(Fixed const &rhs)
+Fixed::~Fixed(void)                 // destructor
 {
-	std::cout << "Copy assignement operator is called" << std::endl;
-	rawBits = getRawBits();
+	std::cout << "Destructor called" << std::endl;
+	return ;
+}
+
+Fixed &Fixed::operator=(const Fixed &rhs)
+{
+	std::cout << "Assignation operator called" << std::endl;
+	this->rawBits = rhs.getRawBits();
 	return (*this);
 }
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
-int	Fixed::getRawBits(void) const
+int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (rawBits);
+	return (this->rawBits);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	rawBits = raw;
+	this->rawBits = raw;
 }
 
-Fixed::Fixed(int const raw)
+float	Fixed::toFloat(void) const // returns the value of the fixed point number as a float
 {
-	rawBits = raw << fractionalBits;
-	std::cout << "Int constructor called" << std::endl;
+	return ((float)this->rawBits / (float)(1 << this->fractionalBits));
 }
 
-Fixed::Fixed(float const raw)
+int		Fixed::toInt(void) const // returns the value of the fixed point number as an int
 {
-	rawBits = (int) roundf(raw * (1 << fractionalBits));
-	std::cout << "Float constructor called" << std::endl;
+	return (this->rawBits >> this->fractionalBits);
 }
 
-int Fixed::toInt(void) const
-{
-	return (rawBits >> fractionalBits);
-}
-
-float Fixed::toFloat(void) const
-{
-	return (rawBits / (float)(1 << fractionalBits));
-}
-
-std::ostream &operator<<(std::ostream &out, Fixed const &rhs)
+std::ostream &operator<<(std::ostream &out, Fixed const & rhs)
 {
 	out << rhs.toFloat();
 	return (out);
