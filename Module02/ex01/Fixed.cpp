@@ -82,8 +82,8 @@ int		Fixed::toInt(void) const // returns the value of the fixed point number as 
 	return (this->rawBits >> this->fractionalBits);
 }
 
-std::ostream &operator<<(std::ostream &out, Fixed const & rhs)
+std::ostream &operator<<(std::ostream &cout, Fixed const &rhs)
 {
-	out << rhs.toFloat();
-	return (out);
+	cout << rhs.toFloat();
+	return (cout);
 }
