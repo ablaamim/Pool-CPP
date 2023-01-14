@@ -48,7 +48,7 @@ Fixed::Fixed(const Fixed &src)    // copy constructor (with const reference)
 	*this = src;
 }
 
-Fixed::~Fixed(void)                 // destructor
+Fixed::~Fixed(void)               // destructor
 {
 	std::cout << "Destructor called" << std::endl;
 	return ;
@@ -72,12 +72,12 @@ void	Fixed::setRawBits(int const raw)
 	this->rawBits = raw;
 }
 
-float	Fixed::toFloat(void) const // returns the value of the fixed point number as a float
+float	Fixed::toFloat(void) const   // returns the value of the fixed point number as a float
 {
 	return ((float)this->rawBits / (float)(1 << this->fractionalBits));
 }
 
-int		Fixed::toInt(void) const // returns the value of the fixed point number as an int
+int		Fixed::toInt(void) const    // returns the value of the fixed point number as an int
 {
 	return (this->rawBits >> this->fractionalBits);
 }
