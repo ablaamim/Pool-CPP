@@ -17,7 +17,7 @@ Point::Point(void) : _x(0), _y(0)
   return ;
 }
 
-Point::Point(float const x, float const y) : _x(x), _y(y)
+Point::Point(float x, float y) : _x(x), _y(y)
 {
   return ;
 }

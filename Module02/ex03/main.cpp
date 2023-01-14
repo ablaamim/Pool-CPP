@@ -16,6 +16,7 @@
 
 #include "Point.hpp"
 
+/*
 static void printError(void)
 {
   std::cout << "Error invalid parameters!\n\n"
@@ -52,6 +53,7 @@ static bool validParams(int argc, char **argv)
   }
   return (true);
 }
+
 
 static void fillParams(Point &a, Point &b, Point &c, Point &p, char *argv[])
 {
@@ -118,9 +120,10 @@ static Point getMaxSize(Point &a, Point &b, Point &c, Point &p)
 
   return (width);
 }
-
+*/
 int main(int argc, char *argv[])
 {
+  /*
   Point a, b, c, p;
   Point minSize, maxSize;
 
@@ -154,5 +157,21 @@ int main(int argc, char *argv[])
     }
     std::cout << "\n";
   }
-  return (0);
+  */
+    (void) argc;
+    (void) argv;
+    //Fixed x1(0);
+    //Fixed x2(0);
+    Point a(0.0,0.0);
+    //Fixed x3(10);
+    //Fixed x4(30);
+    Point b(10.0,30.0);
+    //Fixed x5(20);
+    //Fixed x6(0);
+    Point c(20.0,0.0);
+    //Fixed x7(10);
+    //Fixed x8(15);
+    Point d(10,15);
+    std::cout << std::boolalpha << bsp( a, b, c, d) << std::endl;
+    return (0);
 }

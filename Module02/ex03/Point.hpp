@@ -22,7 +22,7 @@ class Point
 {
  public:
   Point(void);
-  Point(float const x, float const y);
+  Point(float x, float y);
   Point(Point const &src);
   ~Point(void);
 
