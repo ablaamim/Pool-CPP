@@ -16,30 +16,36 @@
 
 #include "Point.hpp"
 
-static void printError(void) {
+static void printError(void)
+{
   std::cout << "Error invalid parameters!\n\n"
             << "Input the vertices of the triangle and the point to check:\n"
             << "A => 0 0 | B => 15 30 | C => 30 0 | P => 0 15\n\n"
             << "Example: ./bsp 0 0 15 30 30 0 0 15\n";
 }
 
-static bool validParams(int argc, char *argv[]) {
-  if (argc != 9) {
+static bool validParams(int argc, char **argv)
+{
+  if (argc != 9)
+  {
     printError();
     return (false);
   }
-  for (int i = 1; i < argc; i++) {
+  for (int i = 1; i < argc; i++)
+  {
     std::string s;
     std::stringstream ss;
     float f;
 
     s.assign(argv[i]), ss << s, ss >> f;
     for (std::string::iterator it = s.begin(); it != s.end(); it++) {
-      if (!std::isdigit(*it) && *it != '.') {
+      if (!std::isdigit(*it) && *it != '.')
+      {
         return (false);
       }
     }
-    if (s.empty() || f < 0 || f > FLT_MAX) {
+    if (s.empty() || f < 0 || f > FLT_MAX)
+    {
       return (false);
     }
     ss.clear();
@@ -47,7 +53,8 @@ static bool validParams(int argc, char *argv[]) {
   return (true);
 }
 
-static void fillParams(Point &a, Point &b, Point &c, Point &p, char *argv[]) {
+static void fillParams(Point &a, Point &b, Point &c, Point &p, char *argv[])
+{
   std::stringstream ss;
   std::string s;
   float x;
@@ -82,7 +89,8 @@ static void fillParams(Point &a, Point &b, Point &c, Point &p, char *argv[]) {
   p.setY(Fixed(static_cast<int>(y)));
 }
 
-static Point getMinSize(Point &a, Point &b, Point &c, Point &p) {
+static Point getMinSize(Point &a, Point &b, Point &c, Point &p)
+{
   Point width;
 
   width.setX(Fixed::min(a.getX(), b.getX()));
@@ -96,7 +104,8 @@ static Point getMinSize(Point &a, Point &b, Point &c, Point &p) {
   return (width);
 }
 
-static Point getMaxSize(Point &a, Point &b, Point &c, Point &p) {
+static Point getMaxSize(Point &a, Point &b, Point &c, Point &p)
+{
   Point width;
 
   width.setX(Fixed::max(a.getX(), b.getX()));
@@ -110,11 +119,13 @@ static Point getMaxSize(Point &a, Point &b, Point &c, Point &p) {
   return (width);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
   Point a, b, c, p;
   Point minSize, maxSize;
 
-  if (!validParams(argc, argv)) {
+  if (!validParams(argc, argv))
+  {
     printError();
     return (1);
   }
@@ -125,14 +136,19 @@ int main(int argc, char *argv[]) {
     std::cout << "\033[1;32mThe point is inside the triangle.\033[0m\n";
   else
     std::cout << "\033[1;31mThe point is outside the triangle.\033[0m\n";
-  for (int i = maxSize.getY().toInt(); i >= minSize.getY().toInt(); i--) {
-    for (int j = minSize.getX().toInt(); j <= maxSize.getX().toFloat(); j++) {
+  for (int i = maxSize.getY().toInt(); i >= minSize.getY().toInt(); i--)
+  {
+    for (int j = minSize.getX().toInt(); j <= maxSize.getX().toFloat(); j++)
+    {
       Point temp(j, i);
-      if (p.getX() == j && p.getY() == i) {
+      if (p.getX() == j && p.getY() == i)
+      {
         std::cout << "\033[1;33mo\033[0m";
-      } else if (bsp(a, b, c, temp)) {
+      } else if (bsp(a, b, c, temp))
+      {
         std::cout << "\033[1;34m#\033[0m";
-      } else {
+      } else
+      {
         std::cout << ".";
       }
     }

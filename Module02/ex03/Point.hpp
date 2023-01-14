@@ -14,7 +14,9 @@
 # define POINT_HPP
 
 # include "Fixed.hpp"
-#include "Fixed.hpp"
+# include "Fixed.hpp"
+
+// Point class represented in canonical form
 
 class Point
 {
