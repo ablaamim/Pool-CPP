@@ -19,5 +19,11 @@ int main()
 
     fragTrap.highFivesGuys();
     scavTrap.guardGate();
+    FragTrap p("Abdessamad");
+    p.highFivesGuys();
+    p.attack("enemy");
+    p.takeDamage(100);
+    p.attack("enemy");
+    p.beRepaired(10);
     return (0);
 }
