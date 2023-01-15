@@ -14,6 +14,7 @@
 
 int main()
 {
+    /*
     ClapTrap clapTrap1;
     ClapTrap clapTrap2("ClapTrap2");
 
@@ -35,17 +36,19 @@ int main()
     clapTrap4.attack("clapTrap1");
     clapTrap4.takeDamage(10);
     clapTrap4.beRepaired(10);
-/*
+    */
+
+    //*** EXTRA TESTS ***
+
     ClapTrap p("Abdessamad");
     p.attack("enemy");
-    p.takeDamage(10);
+    p.takeDamage(20);
     p.attack("enemy");
 
     ClapTrap p1("Abdessamad");
-    for(int i = 0; i <= 10 ;i++)
+    for(int i = 0; i < 10 ;i++)
         p1.attack("enemy");
-    p1.beRepaired(10);
+    p1.beRepaired(20);
     p1.attack("enemy");
-*/
     return (0);
 }

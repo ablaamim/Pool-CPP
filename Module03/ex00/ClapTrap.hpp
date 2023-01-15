@@ -20,20 +20,24 @@ class ClapTrap
 {
 	private :
         std::string name;
-        int	hitPoints;
-        int	energyPoints;
-        int	attackDamage;
+        int	        hitPoints;
+        int	        energyPoints;
+        int	        attackDamage;
+
     public :
+        // Canonical orthodox form
         ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap &copy);
         ClapTrap &operator=(const ClapTrap &copy);
         ~ClapTrap();
 
+        // Member functions
         void attack(std::string const &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
+        // Getters and Setters
         std::string getName() const;
         int getHitPoints() const;
         int getEnergyPoints() const;
