@@ -1,8 +1,6 @@
-NAME = Scavtrap
+NAME = scavTrap
 
-SRCS = ClapTrap.cpp \
-		main.cpp \
-		ScavTrap.cpp \
+SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -26,6 +24,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re : fclean all
 
 .PHONY: all clean fclean re

@@ -1,9 +1,6 @@
-NAME = Fragtrap
+NAME = fragTrap
 
-SRCS = ClapTrap.cpp \
-		main.cpp \
-		ScavTrap.cpp \
-		FragTrap.cpp
+SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -27,6 +24,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re : fclean all
 
 .PHONY: all clean fclean re

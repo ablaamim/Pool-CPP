@@ -1,13 +1,12 @@
-NAME = Harl
+NAME = DiamondTrap
 
-SRCS = main.cpp \
-       Harl.cpp
+SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 RM = rm -f
 
@@ -25,6 +24,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re : fclean all
 
 .PHONY: all clean fclean re

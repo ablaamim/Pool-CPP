@@ -1,13 +1,12 @@
 NAME = claptrap
 
-SRCS = ClapTrap.cpp \
-		main.cpp
+SRCS = ClapTrap.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
@@ -25,6 +24,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re : fclean all
 
 .PHONY: all clean fclean re
