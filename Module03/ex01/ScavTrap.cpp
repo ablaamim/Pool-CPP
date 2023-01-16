@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/16 18:35:16 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/16 18:35:18 by ablaamim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    std::cout << "ScavTrap default constructor called" << std::endl;
+    std::cout << "ScavTrap : " << _name << " is being constructed!" << std::endl;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
@@ -10,7 +22,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    std::cout << "ScavTrap constructor called" << std::endl;
+    std::cout << "ScavTrap : " << _name << " is being constructed!" << std::endl;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
@@ -24,7 +36,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap destructor called" << std::endl;
+    std::cout << "ScavTrap : " << _name << " is being destructed!" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)

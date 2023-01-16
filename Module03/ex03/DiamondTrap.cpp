@@ -1,4 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/16 18:37:05 by ablaamim          #+#    #+#             */
+/*   Updated: 2023/01/16 18:37:07 by ablaamim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap()
+{
+    this->_name = "DiamondTrap";
+    this->_hitPoints = FragTrap::_hitPoints;
+    this->_energyPoints = ScavTrap::_energyPoints;
+    this->_attackDamage = FragTrap::_attackDamage;
+    std::cout << "DiamondTrap " << this->_name << " constructed!\n"
+        << "Hits: " << this->_hitPoints << " DMG: "
+        << this->_attackDamage << " Energy: " << this->_energyPoints << std::endl;
+}
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
