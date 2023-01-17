@@ -30,9 +30,8 @@ class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
         ~DiamondTrap();
         DiamondTrap &operator=(const DiamondTrap &copy);
 
-        virtual void attack(std::string const & target);
+        void attack(std::string const & target);
         void whoAmI();
 };
-
 
 # endif
