@@ -1,4 +1,4 @@
-NAME = polymorphism
+NAME = Brain
 
 SRC = main.cpp \
 		Animal.cpp \
@@ -7,10 +7,11 @@ SRC = main.cpp \
 		WrongAnimal.cpp \
 		WrongCat.cpp \
 		WrongDog.cpp \
+		Brain.cpp \
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 OBJ = $(SRC:.cpp=.o)
 
