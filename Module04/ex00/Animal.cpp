@@ -24,12 +24,12 @@ std::string Animal::getType(void) const
 
 Animal& Animal::operator= (const Animal &other)
 {
-    this->type = other.type;
+    this->type = other.getType();
     return (*this);
 }
 
 void Animal::makeSound(void) const
 {
-    std::cout << "Animal sound" << std::endl;
+    std::cout << "~ Animal sound..." << std::endl;
 }
 

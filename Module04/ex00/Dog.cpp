@@ -19,11 +19,11 @@ Dog::~Dog()
 
 Dog& Dog::operator= (const Dog &other)
 {
-    this->type = other.type;
+    this->type = other.getType();
     return (*this);
 }
 
 void Dog::makeSound(void) const
 {
-    std::cout << "Dog sound" << std::endl;
+    std::cout << "~ Dog sound..." << std::endl;
 }

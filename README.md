@@ -27,6 +27,7 @@ CPP is the name of the [C++](https://en.wikipedia.org/wiki/C%2B%2B) mini pool at
 |CPP Module 02 | This module is designed to help you implement your first class in Canonical orthodox form, overload operators and ad-hoc polymorphism.|
 |CPP Module 03 | This module is designed to help you understand inheritance.|
 | CPP Module 04 | This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP. |
+| CPP Module 05 | This module is designed to help you understand Try/Catch and Exceptions in CPP. |
 
 ---
 

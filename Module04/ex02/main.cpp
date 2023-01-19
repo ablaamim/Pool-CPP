@@ -5,9 +5,9 @@
 
 int main()
 {
-	Cat		cat;   // OK
-	Dog 	dog;   // OK
-	Brain 	brain; // OK
+	Cat		cat;
+	Dog		dog;
+	Brain	brain;
 
 	std::cout << std::endl;
 	std::cout << cat.getBrain()->getIdea() << std::endl;
@@ -15,7 +15,6 @@ int main()
 	std::cout << cat.getBrain()->getIdea() << std::endl;
 	std::cout << std::endl;
 
-	// SUSPECTED FOR UNDEFINED BEHAVIOR -> CASE CLOSED
 	std::cout << std::endl;
 	std::cout << dog.getBrain()->getIdea() << std::endl;
 	dog.getBrain()->setIdea("I am a dog");
@@ -27,6 +26,5 @@ int main()
 	brain.setIdea("Who am i?");
 	std::cout << brain.getIdea() << std::endl;
 	std::cout << std::endl;
-
-	return 0;
+	return (0);
 }

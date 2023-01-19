@@ -1,14 +1,10 @@
-NAME = Brain
+NAME = Bureaucrat
 
-SRC = main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		Brain.cpp \
+SRC = main.cpp Bureaucrat.cpp
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror
 
 OBJ = $(SRC:.cpp=.o)
 
