@@ -18,7 +18,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other): name(other.name), grade(other.g
 	std::cout << "copy constructor called" << std::endl;
 }
 
-Bureaucrat::~Bureaucrat() {
+Bureaucrat::~Bureaucrat()
+{
 	std::cout << "destructor called" << std::endl;
 }
 

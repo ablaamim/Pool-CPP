@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-
 class Bureaucrat
 {
 	private:
@@ -27,10 +26,10 @@ class Bureaucrat
 			virtual const char* what() const throw();
 		};
 
-		std::string const    &getName(void) const;
-		int	                 getGrade(void) const;
+		std::string const	&getName(void) const;
+		int	               	getGrade(void) const;
 		void	            upGrade(void);
-		void	        downGrade(void);
+		void	        	downGrade(void);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
