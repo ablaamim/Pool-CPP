@@ -75,3 +75,16 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs)
     out << rhs.getName() << ", bureaucrat grade : " << rhs.getGrade() << std::endl;
     return (out);
 }
+
+void Bureaucrat::executeForm(Form const &form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << name << " executed " << form.getName() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << name << " Could not execute " << form.getName() << " Because : " << e.what() << std::endl;
+    }
+}

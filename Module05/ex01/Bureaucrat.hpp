@@ -2,37 +2,48 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
 #include <string>
+#include "Form.hpp"
 
+class Form;
 
 class Bureaucrat
 {
-	private:
+	private :
+		const std::string	name;
+		int					grade;
+	public :
 		Bureaucrat();
-		std::string const	name;
-		int	grade;
+		Bureaucrat(std::string name, unsigned int grade);
+		Bureaucrat(Bureaucrat const &src);
+		virtual ~Bureaucrat();
+		Bureaucrat &operator=(Bureaucrat const &rhs);
 
-	public:
-		Bureaucrat(std::string const &name, int grade);
-		Bureaucrat(Bureaucrat const &other);
-		~Bureaucrat();
-		Bureaucrat &operator=(Bureaucrat const &other);
+		std::string const	getName(void) const;
+		unsigned int		getGrade(void) const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+		void				signForm(Form &form);
+	class GradeTooHighException : public std::exception
+	{
+		public :
+			virtual const char *what() const throw()
+			{
+				return ("Grade too high");
+			}
+	};
 
-		class GradeTooHighException: public std::exception
-        {
-			virtual const char* what() const throw();
-		};
-		class GradeTooLowException: public std::exception
-        {
-			virtual const char* what() const throw();
-		};
-
-		std::string const    &getName(void) const;
-		int	                 getGrade(void) const;
-		void	            upGrade(void);
-		void	        downGrade(void);
+	class GradeTooLowException : public std::exception
+	{
+		public :
+			virtual const char *what() const throw()
+			{
+				return ("Grade too low");
+			}
+	};
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &rhs);
 
 #endif

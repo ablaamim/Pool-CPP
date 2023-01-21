@@ -15,6 +15,7 @@ class Form
         bool                status;
         const unsigned int  signGrade;
         const unsigned int  executeGrade;
+        std::string         target;
 
     public :
         Form();
@@ -28,6 +29,8 @@ class Form
         unsigned int        getGradeToSign(void) const;
         unsigned int        getGradeToExecute(void) const;
         void                beSigned(Bureaucrat const &bureaucrat);
+        std::string const   getTarget(void) const;
+        virtual bool               execute(Bureaucrat const &executor) const;
     
     class GradeTooHighException : public std::exception
     {
@@ -43,6 +46,14 @@ class Form
             virtual const char *what() const throw()
             {
                 return ("Grade too low");
+            }
+    };
+    class FormNotSignedException : public std::exception
+    {
+        public :
+            virtual const char *what() const throw()
+            {
+                return ("Form not signed");
             }
     };
 };

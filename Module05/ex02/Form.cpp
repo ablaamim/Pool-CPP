@@ -68,3 +68,18 @@ std::ostream &operator<<(std::ostream &out, Form const &rhs)
     out << "signed and requires a grade of " << rhs.getGradeToSign() << " to sign and a grade of " << rhs.getGradeToExecute() << " to execute." << std::endl;
     return (out);
 }
+
+std::string const Form::getTarget(void) const
+{
+    return (target);
+}
+
+bool   Form::execute(Bureaucrat const &executor) const
+{
+    if (status == false)
+        throw (Form::FormNotSignedException());
+    else if (executor.getGrade() > executeGrade)
+        throw (Form::GradeTooLowException());
+    else
+        return (true);
+}
