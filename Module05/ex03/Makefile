@@ -1,6 +1,12 @@
-NAME = Form
+NAME = Intern
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp \
+		Bureaucrat.cpp \
+		 Form.cpp \
+		 ShrubberyCreationForm.cpp \
+		 RobotomyRequestForm.cpp \
+		 PresidentialPardonForm.cpp \
+		 Intern.cpp
 
 CC = clang++
 
