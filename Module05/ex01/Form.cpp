@@ -19,6 +19,10 @@ Form::Form(Form const &src) : name(src.name), status(src.status), signGrade(src.
 {
     std::cout << "Form copy constructor called" << std::endl;
     *this = src;
+    if (signGrade < 1 || executeGrade < 1)
+        throw (Form::GradeTooHighException());
+    else if (signGrade > 150 || executeGrade > 150)
+        throw (Form::GradeTooLowException());
 }
 
 Form::~Form()

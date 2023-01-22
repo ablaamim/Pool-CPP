@@ -30,7 +30,7 @@ class Bureaucrat
 		public :
 			virtual const char *what() const throw()
 			{
-				return ("Grade too high");
+				return ("Invalid Bureaucrat grade, too high");
 			}
 	};
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		public :
 			virtual const char *what() const throw()
 			{
-				return ("Grade too low");
+				return ("Invalid Bureaucrat grade, too low");
 			}
 	};
 };

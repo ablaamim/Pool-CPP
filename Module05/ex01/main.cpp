@@ -1,35 +1,68 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 int main()
 {
-    Bureaucrat b("Abdessamad 01", 150);
-    Form f("Form", 1, 1);
-    Bureaucrat b2("Abdessamad 02", 150);
-    Form f2("Form", 150, 150);
-    Bureaucrat b3("Abdessamad 03", 149);
-    Form f3("Form", 149, 149);
+    Bureaucrat* b;
+    Form* f;
 
-    b.signForm(f);
-
-    if (f.getSigned())
-        std::cout << "Signed" << std::endl;
-    else
-        std::cout << "Not signed" << std::endl;
-    
-    b2.signForm(f2);
-    if (f2.getSigned())
-        std::cout << "Signed" << std::endl;
-    else
-        std::cout << "Not signed" << std::endl;
-
+    // INVALID TEST
     try
     {
-        b3.signForm(f3);
+        f = new Form("Form1", -1, 1);
+        std::cout << *f;
+        delete f;
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
-        std::cout << e.what() << std::endl;
+        std::cerr << e.what() << "\n";
+    }
+    // ANOTHER INVALID TEST
+    try
+    {
+        f = new Form("Form1", 150, 1);
+        std::cout << *f;
+        delete f;
+    }
+        catch (std::exception& e)
+    {
+        std::cerr << e.what() << "\n";
+    }
+    // BUREAUCRAT COULD NOT SIGN
+    try
+    {
+        b = new Bureaucrat("Abdessamad", 2);
+        f = new Form("Form2", 1, 1);
+        std::cout << *b;
+        b->signForm(*f);
+        delete b;
+        delete f;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << "\n";
+    }
+
+    std::cout << "\n";
+
+    // VALID TEST -> SUDO SU WILL SIGN THE FORM
+    try
+    {
+        b = new Bureaucrat("Sudo su", 1);
+        f = new Form("Form2", 1, 1);
+        std::cout << *f;
+        std::cout << "\n";
+        std::cout << *b;
+        b->signForm(*f);
+        std::cout << "\n";
+        std::cout << *f;
+        delete b;
+        delete f;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << "\n";
     }
     return (0);
 }

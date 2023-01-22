@@ -13,7 +13,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cerr << e.what() << "\n\n";
+        std::cerr << e.what() << "\n";
     }
 
     // INVALID AGAIN
@@ -26,7 +26,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cerr << e.what() << "\n\n";
+        std::cerr << e.what() << "\n";
         delete b;
     }
     // MORE INVALID
@@ -38,19 +38,19 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cerr << e.what() << "\n\n";
+        std::cerr << e.what() << "\n";
     }
     // EVEN MOAR INVALID
     try
     {
-        b = new Bureaucrat("B4", 150);
+        b = new Bureaucrat("B4", 140);
         b->decrementGrade();
         std::cout << *b;
         delete b;
     }
     catch (std::exception& e)
     {
-        std::cerr << e.what() << "\n\n";
+        std::cerr << e.what() <<"\n";
         delete b;
     }
     // INVALID
@@ -62,7 +62,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cerr << e.what() << "\n\n";
+        std::cerr << e.what() << "\n";
     }
     // ANOTHER VALID GRADE
     try
@@ -73,7 +73,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cerr << e.what() << "\n\n";
+        std::cerr << e.what() << "\n";
     }
     return (0);
 }
