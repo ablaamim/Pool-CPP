@@ -30,7 +30,6 @@ void	testVector(void)
 	display(test, it);
 	display(test, easyfind(test, 50));
 	display(test, easyfind(test, 90));
-	display(test, -1);
 }
 
 void	testDeque( void )
