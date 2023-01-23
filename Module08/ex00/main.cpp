@@ -1,7 +1,7 @@
 #include "easyfind.hpp"
 
 template <typename T, typename I>
-void	display( T & container, I iterator )
+void	display(T &container, I iterator)
 {
 	if (iterator != container.end())
 	{
@@ -24,16 +24,18 @@ void	testVector(void)
 	test.push_back(30);
 	test.push_back(40);
 	test.push_back(50);
+	test.push_back(44);
 	
 	it = easyfind(test, 30);
 	display(test, it);
 	display(test, easyfind(test, 50));
 	display(test, easyfind(test, 90));
+	display(test, -1);
 }
 
 void	testDeque( void )
 {
-	std::cout << "-------------- Test with Deque --------------" << std::endl;
+	std::cout << "-------------- Test with Deque ---------------" << std::endl;
 
 	std::deque<int> test;
 
@@ -50,7 +52,7 @@ void	testDeque( void )
 
 void	testList( void )
 {
-	std::cout << "-------------- Test with List --------------" << std::endl;
+	std::cout << "-------------- Test with List ----------------" << std::endl;
 
 	std::list<int> test;
 

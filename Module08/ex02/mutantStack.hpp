@@ -8,19 +8,16 @@
 template<typename T>
 class MutantStack : public std::stack<T>  
 {
-
 	public:
-
 		MutantStack( void );
 		MutantStack( MutantStack<T> const & src );
 		virtual ~MutantStack( void );
 
-		MutantStack<T> &	operator=( MutantStack<T> const & rhs );
+		MutantStack<T> &operator=(MutantStack<T> const &rhs);
 
 		typedef typename std::stack<T>::container_type::iterator iterator;
 
-		iterator begin( void );
-		iterator end( void );
-
+		iterator begin(void);
+		iterator end(void);
 };
 #endif

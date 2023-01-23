@@ -1,33 +1,30 @@
 #include "Span.hpp"
 
-Span::Span( void ) : _n(0)
+Span::Span(void) : _n(0)
 {
-	return ;
 }
 
-Span::Span( unsigned int N ) : _n(N)
+Span::Span(unsigned int N) : _n(N)
 {
-	return ;
 }
 
-Span::Span( Span const & src )
+Span::Span(Span const & src)
 {
 	*this = src;
 }
 
-Span::~Span( void )
+Span::~Span(void)
 {
-	return ;
 }
 
-void	Span::addNumber( int value )
+void	Span::addNumber(int value)
 {
 	if (_values.size() >= _n)
 		throw CannotAddNewElementException();
 	_values.push_back(value);
 }
 
-void	Span::addNumber( iteratorVectorInt begin, iteratorVectorInt end )
+void	Span::addNumber(iteratorVectorInt begin, iteratorVectorInt end)
 {
 	if (static_cast<unsigned int>(_values.size() + std::distance(begin, end)) > _n)
 		throw CannotAddNewElementException();

@@ -30,18 +30,18 @@ class Span
 
 	public:
 
-		Span( void );
-		Span( unsigned int N );
-		Span( Span const & src );
-		virtual ~Span( void );
+		Span(void);
+		Span(unsigned int N);
+		Span(Span const &src);
+		virtual ~Span(void);
 
-		void				addNumber( int value );
-		void				addNumber( iteratorVectorInt begin, iteratorVectorInt end );
+		void				addNumber(int value);
+		void				addNumber(iteratorVectorInt begin, iteratorVectorInt end);
 
-		unsigned int		shortestSpan( void );
-		unsigned int		longestSpan( void );
+		unsigned int		shortestSpan(void);
+		unsigned int		longestSpan(void);
 
-		Span & 				operator=( Span const & rhs );
+		Span 				&operator=(Span const &rhs);
 
 };
 
