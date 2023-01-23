@@ -29,8 +29,8 @@ CPP is the name of the [C++](https://en.wikipedia.org/wiki/C%2B%2B) mini pool at
 | CPP Module 04 | 80 |This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP. |
 | CPP Module 05 | 100 |This module is designed to help you understand Try/Catch and Exceptions in CPP. |
 | CPP Module 06 | 80 | This module is designed to help you understand the different casts in CPP. |
-| CPP Module 07 | This module is designed to help you understand Templates in CPP. |
-| CPP Module 08 | This module is designed to help you understand templated containers, iterators and algorithms in CPP. |
+| CPP Module 07 | 100 | This module is designed to help you understand Templates in CPP. |
+| CPP Module 08 | 100 | This module is designed to help you understand templated containers, iterators and algorithms in CPP. |
 ---
 
 ### Badge :
