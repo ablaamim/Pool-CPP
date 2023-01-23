@@ -1,12 +1,12 @@
-NAME = templates
+NAME = easyfind
 
-SRC = main.cpp 
+SRC = main.cpp
+
+OBJ = $(SRC:.cpp=.o)
 
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
-
-OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 

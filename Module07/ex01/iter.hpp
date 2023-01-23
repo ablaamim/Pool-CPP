@@ -21,16 +21,11 @@ class Awesome
 std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.getN(); return o; }
 
 template <typename T>
-void iter(T *array, size_t length, void (*f)(T const &))
+void iter(T *array, size_t length, void (*func)(T const &))
 {
     for (size_t i = 0; i < length; i++)
-        f(array[i]);
+        func(array[i]);
 }
 
-template <typename T>
-void print(T const &x)
-{
-    std::cout << x << std::endl;
-}
 
 #endif

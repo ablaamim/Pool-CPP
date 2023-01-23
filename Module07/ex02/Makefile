@@ -1,26 +1,28 @@
-NAME = templates
+NAME = array
 
-SRC = main.cpp 
+SRCS = main.cpp
+
+OBJS = $(SRCS:.cpp=.o)
 
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:.cpp=.o)
+RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
