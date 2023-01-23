@@ -58,15 +58,29 @@ int main(int, char**)
         std::cout << numbers[i] << std::endl;
     }
     separator();
-
+    {
     Array<int> empty(0);
     std::cout << "empty size: " << empty.size() << std::endl;
+    }
     separator();
-
+    {
     Array<int> one(1);
     one[0] = 1337;
     std::cout << "one[0]: " << one[0] << std::endl;
     std::cout << "one size: " << one.size() << std::endl;
+    }
+    separator();
+    {
+    try
+    {
+        Array<int> empty(0);
+        empty[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    }
     separator();
     delete [] mirror;
     return 0;

@@ -40,6 +40,38 @@ void	isPrime( int const &n )
 }
 
 
+void rot13(std::string str)
+{
+	for (unsigned long i = 0; i < str.length(); i++)
+	{
+		if (str[i] >= 'a' && str[i] <= 'm')
+			str[i] += 13;
+		else if (str[i] >= 'A' && str[i] <= 'M')
+			str[i] += 13;
+		else if (str[i] >= 'n' && str[i] <= 'z')
+			str[i] -= 13;
+		else if (str[i] >= 'N' && str[i] <= 'Z')
+			str[i] -= 13;
+	}
+	std::cout << str << std::endl;
+}
+
+void decodeRot13(std::string str)
+{
+	for (unsigned long i = 0; i < str.length(); i++)
+	{
+		if (str[i] >= 'a' && str[i] <= 'm')
+			str[i] += 13;
+		else if (str[i] >= 'A' && str[i] <= 'M')
+			str[i] += 13;
+		else if (str[i] >= 'n' && str[i] <= 'z')
+			str[i] -= 13;
+		else if (str[i] >= 'N' && str[i] <= 'Z')
+			str[i] -= 13;
+	}
+	std::cout << str << std::endl;
+}
+
 int main()
 {
    separator();
@@ -56,5 +88,15 @@ int main()
 		iter(array, 10, isPrime);
 	}
     separator();
-    return 0;
+	{
+		std::string str = "1337 is fun !";
+		rot13(str);
+	}
+	separator();
+	{
+		std::string str = "1337 vf sha !";
+		decodeRot13(str);
+	}
+	separator();
+    return (0);
 }

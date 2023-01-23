@@ -8,8 +8,8 @@ class Array
 {
     
 	private:
-		unsigned int	_size;
-		T				*_array;
+		unsigned int	_size;   // size of the array
+		T				*_array; // pointer to the array
 
 	public:
 		Array(void) : _size(0), _array(new T[0]()){}
@@ -31,12 +31,12 @@ class Array
 
 		Array<T> &operator=(Array const &rhs)
 		{
-			delete [] _array;
+			delete []_array;                // delete the old array
 			_size = rhs._size;
 			_array = new T[_size];
 			for (unsigned int i = 0; i < _size; i++)
 				_array[i] = rhs._array[i];
-			return *this;
+			return (*this);
 		}
 
 		T &operator[](int index)
