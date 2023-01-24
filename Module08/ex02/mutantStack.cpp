@@ -14,7 +14,6 @@ MutantStack<T>::MutantStack(MutantStack<T> const &src)
 template <typename T>
 MutantStack<T>::~MutantStack( void )
 {
-	return ;
 }
 
 template <typename T>
@@ -24,6 +23,8 @@ MutantStack<T> &MutantStack<T>::operator=(MutantStack<T> const &rhs)
 		std::stack<T>::operator=(rhs);
 	return *this;
 }
+
+// c.begin() and c.end() are protected members of std::stack
 
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin(void)
