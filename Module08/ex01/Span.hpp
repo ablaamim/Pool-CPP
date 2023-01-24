@@ -42,7 +42,6 @@ class Span
 		unsigned int		longestSpan(void);
 
 		Span 				&operator=(Span const &rhs);
-
 };
 
 #endif

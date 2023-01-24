@@ -55,7 +55,7 @@ unsigned int		Span::longestSpan( void )
 		throw ElementsLessThanTwoException();
 	max = *std::max_element(_values.begin(), _values.end());
 	min = *std::min_element(_values.begin(), _values.end());
-	return max - min;
+	return (max - min);
 }
 
 Span &	Span::operator=( Span const & rhs )

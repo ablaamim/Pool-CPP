@@ -1,6 +1,8 @@
 #include "Span.hpp"
 
-static void	testLongestSpan( Span & test )
+// UNIT TESTS :
+
+static void	testLongestSpan(Span &test)
 {
 	try
 	{
@@ -12,7 +14,7 @@ static void	testLongestSpan( Span & test )
 	}
 }
 
-static void	testShortestSpan( Span & test )
+static void	testShortestSpan(Span &test)
 {
 	try
 	{
@@ -24,7 +26,7 @@ static void	testShortestSpan( Span & test )
 	}
 }
 
-static void	testVectorEmpty( void )
+static void	testVectorEmpty(void)
 {
 	std::cout << "-------------- Test Vector Empty --------------" << std::endl;
 
@@ -36,7 +38,7 @@ static void	testVectorEmpty( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorOneElement( void )
+static void	testVectorOneElement(void)
 {
 	std::cout << "---------- Test Vector One Element ----------" << std::endl;
 
@@ -50,7 +52,7 @@ static void	testVectorOneElement( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorTwoElement( void )
+static void	testVectorTwoElement(void)
 {
 	std::cout << "---------- Test Vector Two Element ----------" << std::endl;
 
@@ -65,7 +67,7 @@ static void	testVectorTwoElement( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorTenPositiveElement( void )
+static void	testVectorTenPositiveElement(void)
 {
 	std::cout << "---------- Test Vector Ten Element ----------" << std::endl;
 
@@ -81,7 +83,7 @@ static void	testVectorTenPositiveElement( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorTenNegativeElement( void )
+static void	testVectorTenNegativeElement(void)
 {
 	std::cout << "------ Test Vector Ten Negative Element ------" << std::endl;
 
@@ -97,7 +99,7 @@ static void	testVectorTenNegativeElement( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorTenThousandElement( void )
+static void	testVectorTenThousandElement(void)
 {
 	std::cout << "------ Test Vector Ten Thousand Element ------" << std::endl;
 	srand(time(NULL));
@@ -115,7 +117,7 @@ static void	testVectorTenThousandElement( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorDuplicateElement( void )
+static void	testVectorDuplicateElement(void)
 {
 	std::cout << "------- Test Vector Duplicate Element -------" << std::endl;
 
@@ -130,7 +132,7 @@ static void	testVectorDuplicateElement( void )
 	std::cout << std::endl;
 }
 
-static void	testVectorWithCopyElement( void )
+static void	testVectorWithCopyElement(void)
 {
 	std::cout << "------- Test Vector With Copy Element -------" << std::endl;
 
@@ -151,7 +153,7 @@ static void	testVectorWithCopyElement( void )
 	std::cout << std::endl;
 }
 
-static void	testOutOfLimits( void )
+static void	testOutOfLimits(void)
 {
 	std::cout << "------------- Test Out of Limits -------------" << std::endl;
 
